@@ -13,11 +13,12 @@ Before getting started, you'll need:
    - [Download Git](https://git-scm.com/downloads)
 3. **Python** - Required to run the Pelican static site generator
    - [Download Python](https://www.python.org/downloads/) (Version 3.7 or higher recommended)
-4. **Text Editor** - Any text editor for working with Markdown files
+4. **Pelican** - Python-based static site generator 
+5. **Text Editor** - Any text editor for working with Markdown files
    - Recommended: [Visual Studio Code](https://code.visualstudio.com/) with Markdown extensions
-5. **GitHub Account** - For hosting your repository and static website
+6. **GitHub Account** - For hosting your repository and static website
    - [Sign up for GitHub](https://github.com/join)
-6. **Command Line Interface** - Basic knowledge of using terminal/command prompt
+7. **Command Line Interface** - Basic knowledge of using terminal/command prompt
 
 ## Instructions
 
