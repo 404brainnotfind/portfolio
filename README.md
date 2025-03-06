@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This README guide provides step-by-step instructions on how to host a professional resume using Markdown, a static site generator, and a forge with static site hosting capabilities. These instructions are designed for individuals with basic computer skills who are interested in learning modern technical documentation techniques as described in Andrew Etter's book, "Modern Technical Writing." By following this guide, you will create and publish a professional online presence that showcases your resume while implementing industry-standard documentation practices.
+This README guide provides step-by-step instructions on how to host a professional resume using Markdown, a static site generator, and a forge with static site hosting capabilities. By following Andrew Etter’s principles from Modern Technical Writing, you will create and publish a professional online presence that showcases your resume while implementing industry-standard documentation practices.
 
 ## Prerequisites
 
@@ -23,19 +23,19 @@ Before getting started, you'll need:
 
 ### 1. Create Your Resume Using Markdown
 
-Etter emphasizes the importance of using lightweight markup languages in his book because they are simple, portable, and easily versionable. Markdown perfectly embodies these principles as it's human-readable even in its raw form.
+#### Why Markdown
+
+Markdown lets you focus on content over formatting, which Etter says is key for maintainable documentation.
 
 To create your resume in Markdown:
 
 1. Open your text editor of choice
-2. Format your resume using Markdown syntax
+2. Write your resume using Markdown syntax (e.g., `# Header`, `- List items`). 
 3. Save the file as `resume.md`
-
-Markdown allows you to focus on content rather than formatting, which aligns with Etter's principle of prioritizing content accessibility over complex formatting.
 
 ### 2. Set Up a Local Repository with Git
 
-Etter strongly advocates for distributed version control systems because they enable collaboration, provide a history of changes, and facilitate content updates. Git is the industry standard that embodies these principles.
+Etter highlights Git as essential for modern technical writing. Initialize a Git repository to track revisions of your resume, ensuring you can review changes or revert mistakes easily.
 
 To initialize your repository:
 
@@ -49,41 +49,39 @@ To initialize your repository:
    git commit -m "Add resume in Markdown format"
    ```
 
-This version control approach ensures your content is trackable and recoverable at any point, which is a fundamental principle Etter emphasizes for sustainable documentation.
+This version control approach ensures your content is trackable and recoverable at any point.
 
 ### 3. Install and Configure Pelican
-
-Etter recommends using static site generators because they convert lightweight markup into modern, responsive websites without the complexity of databases or server-side processing. Pelican is a Python-based static site generator that works seamlessly with Markdown.
+Pelican, a Python-based static site generator, align with Etter’s principle of automating repetitive tasks. Install Pelican to convert your Markdown resume into a fast, secure website without manual HTML coding.
 
 To install Pelican:
 
-1. Ensure Python and pip are installed
-2. Run the following command to install Pelican and Markdown support:
+
+1. Run the following command to install Pelican and Markdown support:
    ```
    pip install pelican markdown
    ```
-3. Navigate to your project directory in the command line
-4. Run `pelican-quickstart` to initialize your Pelican project
-5. Answer the prompts to configure your site:
-   - Set the title for your website (e.g., "Professional Portfolio")
+2. Navigate to your project directory in the command line
+3. Run `pelican-quickstart` to initialize your Pelican project
+4. Answer the prompts to configure your site:
    - Enter your name as the author
-   - Accept default language (en)
-   - Select "No" for URL prefix if you're using GitHub Pages
-   - Accept default settings for other options or customize as desired
+   - Set the title for your website (e.g., "Professional Portfolio")
+   - URL Prefix: https://YourGitHubUsername.github.io/Portfolio
+   - Enable GitHub Pages: Type Y 
+   - Press Enter for the rest prompts to use default values.
 
-Pelican implements Etter's principle of separating content from presentation, allowing you to focus on writing quality content in Markdown while the generator handles the HTML production.
+
 
 ### 4. Organize Your Content
 
-Etter emphasizes the importance of well-organized documentation structure. For a resume site, this means organizing your content in a way that's intuitive and accessible.
+Etter advises organizing documentation intuitively. Move your resume.md to Pelican’s content folder and create a homepage (index.md) to guide visitors naturally to your resume.
 
-1. In your project directory, locate the `content` folder created by Pelican
+1. locate the `content` folder created by Pelican
 2. Move your `resume.md` file into this folder
 3. Add a title, date, and category metadata to the top of your resume file:
    ```
    Title: Resume
    Date: 2025-03-02
-   Category: Professional
    ```
 4. Create an `index.md` file in the content folder to serve as your homepage:
    ```
@@ -100,24 +98,22 @@ This structure follows Etter's principle of organizing documentation logically a
 
 ### 5. Generate Your Static Site
 
-Static site generation converts your Markdown content into HTML, which can be hosted anywhere. Etter favors this approach because it creates fast, secure, and portable websites.
+Static site generation converts your Markdown content into HTML, which can be hosted anywhere. As Etter recommends, preview your site locally to ensure accuracy. Static generation avoids server-side risks and ensures your resume loads quickly for all users.
 
 1. From your project directory, run:
    ```
    pelican content
    ```
-2. This generates your website in the `output` directory
-3. To preview your site locally, run:
+2. To preview your site locally, run:
    ```
    pelican --listen
    ```
-4. Open your browser and navigate to `http://localhost:8000`
-
-This step demonstrates Etter's principle of using automation to create consistent, error-free documentation outputs.
+3. Open your browser and navigate to `http://localhost:8000`
+4. Repeat step 1-3 if you modify anything in content
 
 ### 6. Create a Repository on GitHub
 
-Etter recommends using public version control platforms (forges) to host documentation because they provide visibility, enable collaboration, and integrate with modern workflows.
+Etter recommends using public version control platforms (forges) to host documentation because they provide visibility, enable collaboration, and integrate with modern workflows. 
 
 1. Log in to your GitHub account
 2. Click the "+" icon in the upper right corner and select "New repository"
@@ -132,11 +128,10 @@ Etter recommends using public version control platforms (forges) to host documen
    git push -u origin main
    ```
 
-This step follows Etter's principle of making documentation publicly accessible and versionable.
-
+???
 ### 7. Set Up GitHub Pages
 
-Etter emphasizes the importance of making documentation accessible online. GitHub Pages provides free hosting for static sites directly from your repository.
+Etter emphasizes the importance of making documentation accessible online. Push changes to GitHub to keep your online resume current.
 
 1. In your GitHub repository, go to "Settings"
 2. Scroll down to the "GitHub Pages" section
@@ -150,9 +145,8 @@ Etter emphasizes the importance of making documentation accessible online. GitHu
    ```
 8. Commit and push these changes:
    ```
-   git add docs
-   git commit -m "Add built site for GitHub Pages"
-   git push
+   ghp-import output -b gh-pages
+   git push origin gh-pages
    ```
 
 This approach demonstrates Etter's principle of publishing documentation where users can easily access it.
@@ -162,12 +156,16 @@ This approach demonstrates Etter's principle of publishing documentation where u
 Etter emphasizes that documentation is never "done" and should be regularly updated. To maintain your resume site:
 
 1. Make changes to your Markdown files as needed
-2. Regenerate your site with `pelican content -o docs -s publishconf.py`
-3. Commit and push your changes:
+2. Push Source Code to main Branch
    ```
    git add .
-   git commit -m "Update resume information"
-   git push
+   git push origin main
+   ```
+3.Regenerate your site with `pelican content -o docs -s publishconf.py`
+4. Deploy Site to gh-pages Branch:
+   ```
+   ghp-import output -b gh-pages
+   git push origin gh-pages
    ```
 
 This ongoing maintenance process aligns with Etter's philosophy that documentation should be treated as a living product that evolves over time.
@@ -187,27 +185,40 @@ For further exploration and learning, check out these resources:
 
 ### Why is Markdown better than writing raw HTML?
 
-Markdown is better than raw HTML for documentation because it's significantly more readable and writable for humans. As Etter points out in his book, lightweight markup languages like Markdown allow content creators to focus on writing rather than formatting. With Markdown, you can create structured documents using simple, intuitive syntax without getting lost in HTML tags. This aligns with Etter's principle that documentation should be easy to create and maintain. Additionally, Markdown is portable across platforms and can be easily converted to various output formats including HTML, PDF, and more.
+Markdown is better than raw HTML for documentation because it's significantly more readable and writable for humans. 
+
+As Etter points out in his book, lightweight markup languages like Markdown allow content creators to focus on writing rather than formatting. 
+
+With Markdown, you can create structured documents using simple, intuitive syntax without getting lost in HTML tags. This aligns with Etter's principle that documentation should be easy to create and maintain.
+
+Additionally, Markdown is portable across platforms and can be easily converted to various output formats including HTML, PDF, and more.
 
 ### I changed the Markdown version of my resume, but the changes don't appear on my website. Why?
 
-This happens because static site generators don't automatically rebuild your site when you change source files. After making changes to your Markdown files, you need to regenerate your site by running `pelican content -o docs -s publishconf.py` and then commit and push these changes to GitHub. This two-step process (generating HTML and then updating the repository) is part of the static site workflow that Etter describes. It gives you more control over when updates are published, allowing you to review changes before they go live. Remember that GitHub Pages may also take a few minutes to reflect your changes after pushing.
+This happens because static site generators don't automatically rebuild your site when you change source files. 
+
+After making changes to your Markdown files, you need to regenerate your site by running `pelican content -o docs -s publishconf.py` and then commit and push these changes to GitHub. Remember that GitHub Pages may also take a few minutes to reflect your changes after pushing.
 
 ### How do I add images to my resume site?
 
-To add images to your resume site, first place the image files in the `content/images` directory of your Pelican project. Then, in your Markdown files, reference the images using Markdown syntax: `![Alt text](/images/filename.jpg)`. When Pelican generates your site, it will correctly link these images. This approach follows Etter's recommendation of organizing assets logically within your documentation project.
+To add images to your resume site, first place the image files in the `content/images` directory of your Pelican project. 
+
+Then, in your Markdown files, reference the images using Markdown syntax: `![Alt text](/images/filename.jpg)`. When Pelican generates your site, it will correctly link these images. 
 
 ### Why use a static site instead of a service like LinkedIn?
 
-As Etter emphasizes, static websites offer several advantages over third-party platforms: they give you complete control over your content's presentation, they don't depend on a third party's continued existence, they're faster to load, more secure (no databases to hack), and they demonstrate your technical skills to potential employers. While LinkedIn is valuable for networking, a personal static site showcases your ability to implement modern technical practices—exactly the kind of initiative that can distinguish you from other candidates.
+As Etter emphasizes, static websites offer several advantages over third-party platforms: they give you complete control over your content's presentation, they don't depend on a third party's continued existence, they're faster to load, more secure (no databases to hack), and they demonstrate your technical skills to potential employers. 
+
+While LinkedIn is valuable for networking, a personal static site showcases your ability to implement modern technical practices—exactly the kind of initiative that can distinguish you from other candidates.
 
 ## Credits
 
-- Hui Miao - Original resume content and implementation
 - Andrew Etter - Principles of modern technical writing
 - Pelican - Static site generator
 - GitHub - Repository hosting and GitHub Pages
-- [Your peer review group members' names] - Peer review and feedback
+- Maro Hamed/Shuvo Sarker/Zelong Yang - Peer review and feedback
 - University of Manitoba - Assignment framework and guidance
+- favicon.io - favicon icon
+- simple-bootstrap -  Pelican theme used for website design
 
-*This README was created as part of COMP 2600: Technical Communication in Computer Science at the University of Manitoba, Winter 2025.*
+*This README was created as part of COMP 2600 at the University of Manitoba, Winter 2025.*
