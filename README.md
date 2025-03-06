@@ -129,7 +129,6 @@ Etter recommends using public version control platforms (forges) to host documen
    git push -u origin main
    ```
 
-???
 ### 7. Set Up GitHub Pages
 
 Etter emphasizes the importance of making documentation accessible online. Push changes to GitHub to keep your online resume current.
