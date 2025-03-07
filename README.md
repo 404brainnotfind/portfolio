@@ -161,7 +161,7 @@ Etter emphasizes that documentation is never "done" and should be regularly upda
    git add .
    git push origin main
    ```
-3.Regenerate your site with `pelican content -o docs -s publishconf.py`
+3. Regenerate your site with `pelican content -o docs -s publishconf.py`
 4. Deploy Site to gh-pages Branch:
    ```
    ghp-import output -b gh-pages
