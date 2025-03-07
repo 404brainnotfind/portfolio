@@ -31,8 +31,16 @@ Markdown lets you focus on content over formatting, which Etter says is key for 
 To create your resume in Markdown:
 
 1. Open your text editor of choice
-2. Write your resume using Markdown syntax (e.g., `# Header`, `- List items`). 
+2. Write your resume using Markdown syntax 
+   Example:
+   ```
+   Use # for main headings (e.g., # Education)
+   Use ## for subheadings (e.g., ## Skills)
+   Use - or * for bullet points
+   Use **text** for bold text
+   ```
 3. Save the file as `resume.md`
+Tip: If you're new to Markdown, refer to the resources section at the end of this document for helpful tutorials.
 
 ### 2. Set Up a Local Repository with Git
 
@@ -40,9 +48,9 @@ Etter highlights Git as essential for modern technical writing. Initialize a Git
 
 To initialize your repository:
 
-1. Create a new folder for your project on your computer
-2. Open your command line interface
-3. Navigate to your project folder using the `cd` command
+1. Create a new folder for your project on your computer (e.g., resume-site, portfolio)
+2. Open your command line interface (Powershell, Cmd)
+3. Navigate to your project folder using the `cd path/to/your/portfolio`
 4. Run `git init` to initialize a new Git repository
 5. Create an initial commit with your resume:
    ```
@@ -90,7 +98,7 @@ Etter advises organizing documentation intuitively. Move your resume.md to Pelic
    Date: 2025-03-02
    Save_as: index.html
    
-   Welcome to my professional portfolio. Here you can find information about my background, skills, and experience.
+   Welcome! Here you can find information about my background, skills, and experience.
    
    [View my resume](/resume.html)
    ```
@@ -133,21 +141,30 @@ Etter recommends using public version control platforms (forges) to host documen
 
 Etter emphasizes the importance of making documentation accessible online. Push changes to GitHub to keep your online resume current.
 
-1. In your GitHub repository, go to "Settings"
-2. Scroll down to the "GitHub Pages" section
-3. Under "Source", select the branch where your site is located (usually "main")
-4. Select the "docs" folder or "root" depending on your setup
-5. Click "Save"
-6. Modify your pelican configuration in `publishconf.py` to work with GitHub Pages
-7. Build your site for production by running:
+To set up GitHub Pages:
+
+1. First, modify your Pelican configuration for GitHub Pages:
+   - Open `publishconf.py` in your text editor
+   - Ensure the `SITEURL` variable is set to your GitHub Pages URL (e.g., `'https://yourusername.github.io/professional-portfolio'`)
+   - Save the file
+2. Build your site for production:
    ```
-   pelican content -o docs -s publishconf.py
+   pelican content -o output -s publishconf.py
    ```
-8. Commit and push these changes:
+3. Deploy your site to GitHub Pages using ghp-import:
    ```
    ghp-import output -b gh-pages
+   ```
+   This command creates or updates a branch called "gh-pages" with your site content
+4. Push the gh-pages branch to GitHub:
+   ```
    git push origin gh-pages
    ```
+5. In your GitHub repository, go to "Settings" > "Pages"
+6. Under "Build and deployment" > "Source", select "Deploy from a branch"
+7. Under "Branch", select "gh-pages" and "/(root)", then click "Save"
+8. Wait a few minutes for your site to be published
+9. Access your site at `https://yourusername.github.io/professional-portfolio`
 
 This approach demonstrates Etter's principle of publishing documentation where users can easily access it.
 
@@ -185,40 +202,59 @@ For further exploration and learning, check out these resources:
 
 ### Why is Markdown better than writing raw HTML?
 
-Markdown is better than raw HTML for documentation because it's significantly more readable and writable for humans. 
+Markdown is better than raw HTML for documentation because it's significantly more readable and writable for humans. As Etter points out in his book, lightweight markup languages like Markdown allow content creators to focus on writing rather than formatting.
 
-As Etter points out in his book, lightweight markup languages like Markdown allow content creators to focus on writing rather than formatting. 
-
-With Markdown, you can create structured documents using simple, intuitive syntax without getting lost in HTML tags. This aligns with Etter's principle that documentation should be easy to create and maintain.
+With Markdown, you can create structured documents using simple, intuitive syntax without getting lost in HTML tags. For example, creating a heading in HTML requires `<h1>Heading</h1>`, while in Markdown it's simply `# Heading`.
 
 Additionally, Markdown is portable across platforms and can be easily converted to various output formats including HTML, PDF, and more.
 
 ### I changed the Markdown version of my resume, but the changes don't appear on my website. Why?
 
-This happens because static site generators don't automatically rebuild your site when you change source files. 
+This happens because static site generators don't automatically rebuild your site when you change source files. After making changes to your Markdown files, you need to follow these steps:
 
-After making changes to your Markdown files, you need to regenerate your site by running `pelican content -o docs -s publishconf.py` and then commit and push these changes to GitHub. Remember that GitHub Pages may also take a few minutes to reflect your changes after pushing.
+1. Regenerate your site with `pelican content -o output -s publishconf.py`
+2. Deploy the updated site with `ghp-import output -b gh-pages`
+3. Push the changes to GitHub with `git push origin gh-pages`
+
+Remember that GitHub Pages may also take a few minutes to reflect your changes after pushing.
 
 ### How do I add images to my resume site?
 
-To add images to your resume site, first place the image files in the `content/images` directory of your Pelican project. 
+To add images to your resume site:
 
-Then, in your Markdown files, reference the images using Markdown syntax: `![Alt text](/images/filename.jpg)`. When Pelican generates your site, it will correctly link these images. 
+1. Create an `images` folder inside your `content` directory
+2. Place your image files in this folder
+3. In your Markdown files, reference the images using this syntax:
+   ```
+   ![Alt text](/images/filename.jpg)
+   ```
+   (Replace "Alt text" with a description of the image and "filename.jpg" with your actual image filename)
+
+When Pelican generates your site, it will correctly link these images.
 
 ### Why use a static site instead of a service like LinkedIn?
 
-As Etter emphasizes, static websites offer several advantages over third-party platforms: they give you complete control over your content's presentation, they don't depend on a third party's continued existence, they're faster to load, more secure (no databases to hack), and they demonstrate your technical skills to potential employers. 
+As Etter emphasizes, static websites offer several advantages over third-party platforms:
+
+1. **Complete control**: You have full control over your content's presentation and formatting
+2. **Independence**: Your online presence doesn't depend on a third party's continued existence
+3. **Performance**: Static sites load faster and are more reliable
+4. **Security**: With no databases or server-side code, static sites are less vulnerable to security issues
+5. **Technical showcase**: Creating a personal static site demonstrates your technical skills to potential employers
 
 While LinkedIn is valuable for networking, a personal static site showcases your ability to implement modern technical practices—exactly the kind of initiative that can distinguish you from other candidates.
 
 ## Credits
 
-- Andrew Etter - Principles of modern technical writing
-- Pelican - Static site generator
-- GitHub - Repository hosting and GitHub Pages
-- Maro Hamed/Shuvo Sarker/Zelong Yang - Peer review and feedback
-- University of Manitoba - Assignment framework and guidance
-- favicon.io - favicon icon
-- simple-bootstrap -  Pelican theme used for website design
+- **Andrew Etter** - Principles of modern technical writing
+- **Pelican** - Static site generator
+- **GitHub** - Repository hosting and GitHub Pages
+- **Peer Reviewers**:
+  - Maro Hamed
+  - Shuvo Sarker
+  - Zelong Yang
+- **University of Manitoba** - Assignment framework and guidance
+- **[favicon.io](https://favicon.io/)** - Favicon icon
+- **[simple-bootstrap](https://github.com/getpelican/pelican-themes/tree/master/simple-bootstrap)** - Pelican theme used for website design
 
 *This README was created as part of COMP 2600 at the University of Manitoba, Winter 2025.*
