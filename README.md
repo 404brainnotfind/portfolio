@@ -1,24 +1,20 @@
-# Hosting a Professional Resume on a Static Website
+# Hosting Resume on a Static Website
 
 ## Purpose
 
-This README guide provides step-by-step instructions on how to host a professional resume using Markdown, a static site generator, and a forge with static site hosting capabilities. By following Andrew Etter’s principles from Modern Technical Writing, you will create and publish a professional online presence that showcases your resume while implementing industry-standard documentation practices.
+This README guide provides step-by-step instructions on how to host a resume using Markdown, a static site generator, and a forge with static site hosting capabilities. By following Andrew Etter’s principles from Modern Technical Writing, you will create and publish a professional online presence that showcases your resume while implementing industry-standard documentation practices.
 
 ## Prerequisites
 
 Before getting started, you'll need:
 
-1. **A Markdown-formatted resume** - Your professional resume formatted in Markdown syntax
-2. **Git** - Version control system installed on your local machine
-   - [Download Git](https://git-scm.com/downloads)
-3. **Python** - Required to run the Pelican static site generator
-   - [Download Python](https://www.python.org/downloads/) (Version 3.7 or higher recommended)
+1. **A Markdown-formatted resume** 
+2. **[Git](https://git-scm.com/downloads)** - Version control system installed on your local machine
+3. **[Python](https://www.python.org/downloads/) ** - Required to run the Pelican static site generator
 4. **Pelican** - Python-based static site generator 
 5. **Text Editor** - Any text editor for working with Markdown files
    - Recommended: [Visual Studio Code](https://code.visualstudio.com/) with Markdown extensions
-6. **GitHub Account** - For hosting your repository and static website
-   - [Sign up for GitHub](https://github.com/join)
-7. **Command Line Interface** - Basic knowledge of using terminal/command prompt
+6. **[GitHub Account](https://github.com/join)** - For hosting your repository and static website
 
 ## Instructions
 
@@ -58,13 +54,8 @@ To initialize your repository:
    git commit -m "Add resume in Markdown format"
    ```
 
-This version control approach ensures your content is trackable and recoverable at any point.
-
 ### 3. Install and Configure Pelican
-Pelican, a Python-based static site generator, align with Etter’s principle of automating repetitive tasks. Install Pelican to convert your Markdown resume into a fast, secure website without manual HTML coding.
-
-To install Pelican:
-
+Pelican, a Python-based static site generator, aligns with Etter’s principle of automating repetitive tasks. Install Pelican to convert your Markdown resume into a fast, secure website without manual HTML coding.
 
 1. Run the following command to install Pelican and Markdown support:
    ```
@@ -74,7 +65,7 @@ To install Pelican:
 3. Run `pelican-quickstart` to initialize your Pelican project
 4. Answer the prompts to configure your site:
    - Enter your name as the author
-   - Set the title for your website (e.g., "Professional Portfolio")
+   - Set the title for your website (e.g., "Portfolio")
    - URL Prefix: https://YourGitHubUsername.github.io/Portfolio
    - Enable GitHub Pages: Type Y 
    - Press Enter for the rest prompts to use default values.
@@ -126,13 +117,13 @@ Etter recommends using public version control platforms (forges) to host documen
 
 1. Log in to your GitHub account
 2. Click the "+" icon in the upper right corner and select "New repository"
-3. Name your repository (e.g., "professional-portfolio")
+3. Name your repository (e.g., "portfolio")
 4. Make it public
 5. Do not initialize with a README (we already have one)
 6. Click "Create repository"
 7. Follow the instructions to push your existing repository:
    ```
-   git remote add origin https://github.com/yourusername/professional-portfolio.git
+   git remote add origin https://github.com/yourusername/portfolio.git
    git branch -M main
    git push -u origin main
    ```
@@ -145,7 +136,7 @@ To set up GitHub Pages:
 
 1. First, modify your Pelican configuration for GitHub Pages:
    - Open `publishconf.py` in your text editor
-   - Ensure the `SITEURL` variable is set to your GitHub Pages URL (e.g., `'https://yourusername.github.io/professional-portfolio'`)
+   - Ensure the `SITEURL` variable is set to your GitHub Pages URL (e.g., `'https://yourusername.github.io/portfolio'`)
    - Save the file
 2. Build your site for production:
    ```
@@ -164,7 +155,7 @@ To set up GitHub Pages:
 6. Under "Build and deployment" > "Source", select "Deploy from a branch"
 7. Under "Branch", select "gh-pages" and "/(root)", then click "Save"
 8. Wait a few minutes for your site to be published
-9. Access your site at `https://yourusername.github.io/professional-portfolio`
+9. Access your site at `https://yourusername.github.io/portfolio`
 
 This approach demonstrates Etter's principle of publishing documentation where users can easily access it.
 
@@ -184,16 +175,13 @@ Etter emphasizes that documentation is never "done" and should be regularly upda
    ghp-import output -b gh-pages
    git push origin gh-pages
    ```
-
-This ongoing maintenance process aligns with Etter's philosophy that documentation should be treated as a living product that evolves over time.
-
+   
 ## Resources
 
 For further exploration and learning, check out these resources:
 
 1. [Andrew Etter's Modern Technical Writing](https://www.amazon.com/Modern-Technical-Writing-Introduction-Documentation-ebook/dp/B01A2QL9SS) - The definitive guide on modern documentation approaches
 2. [GitHub Markdown Guide](https://guides.github.com/features/mastering-markdown/) - Comprehensive Markdown tutorial
-3. [The Markdown Guide](https://www.markdownguide.org/) - In-depth resource for learning Markdown syntax
 4. [Pelican Documentation](https://docs.getpelican.com/) - Official documentation for the Pelican static site generator
 5. [Git Handbook](https://guides.github.com/introduction/git-handbook/) - Essential Git commands and workflows
 6. [GitHub Pages Documentation](https://docs.github.com/en/pages) - Complete guide to GitHub Pages features
@@ -202,9 +190,7 @@ For further exploration and learning, check out these resources:
 
 ### Why is Markdown better than writing raw HTML?
 
-Markdown is better than raw HTML for documentation because it's significantly more readable and writable for humans. As Etter points out in his book, lightweight markup languages like Markdown allow content creators to focus on writing rather than formatting.
-
-With Markdown, you can create structured documents using simple, intuitive syntax without getting lost in HTML tags. For example, creating a heading in HTML requires `<h1>Heading</h1>`, while in Markdown it's simply `# Heading`.
+Markdown is better than raw HTML for documentation because it's significantly more readable and writable for humans. With Markdown, you can create structured documents using simple, intuitive syntax without getting lost in HTML tags. For example, creating a heading in HTML requires `<h1>Heading</h1>`, while in Markdown it's simply `# Heading`.
 
 Additionally, Markdown is portable across platforms and can be easily converted to various output formats including HTML, PDF, and more.
 
@@ -216,7 +202,7 @@ This happens because static site generators don't automatically rebuild your sit
 2. Deploy the updated site with `ghp-import output -b gh-pages`
 3. Push the changes to GitHub with `git push origin gh-pages`
 
-Remember that GitHub Pages may also take a few minutes to reflect your changes after pushing.
+Tips: GitHub Pages may also take a few minutes to reflect your changes after pushing.
 
 ### How do I add images to my resume site?
 
@@ -237,12 +223,10 @@ When Pelican generates your site, it will correctly link these images.
 As Etter emphasizes, static websites offer several advantages over third-party platforms:
 
 1. **Complete control**: You have full control over your content's presentation and formatting
-2. **Independence**: Your online presence doesn't depend on a third party's continued existence
-3. **Performance**: Static sites load faster and are more reliable
-4. **Security**: With no databases or server-side code, static sites are less vulnerable to security issues
-5. **Technical showcase**: Creating a personal static site demonstrates your technical skills to potential employers
+2. **Security**: With no databases or server-side code, static sites are less vulnerable to security issues
+3. **Technical showcase**: Creating a personal static site demonstrates your technical skills to potential employers
 
-While LinkedIn is valuable for networking, a personal static site showcases your ability to implement modern technical practices—exactly the kind of initiative that can distinguish you from other candidates.
+While LinkedIn is valuable for networking, a personal static site showcases your ability and distinguishes you from other candidates.
 
 ## Credits
 
