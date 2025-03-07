@@ -109,7 +109,6 @@ Static site generation converts your Markdown content into HTML, which can be ho
    pelican --listen
    ```
 3. Open your browser and navigate to `http://localhost:8000`
-4. Repeat step 1-3 if you modify anything in content
 
 ### 6. Create a Repository on GitHub
 
